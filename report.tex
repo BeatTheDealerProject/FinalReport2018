@@ -14,6 +14,7 @@
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{funpro}
 \usepackage{listings}
+\usepackage{multirow}
 
 \setcounter{chapter}{1}
 \setcounter{section}{0}
@@ -38,8 +39,8 @@
 \GroupMember  {9}{1016231}{米村祥裕}{Yoshihiro~Yonemura}
 \jadvisor{川越敏司,川口聡,斎藤朝輝}
 \eadvisor{Toshiji~Kawagoe,Satoshi~Kawaguchi,Asaki~Saitou}
-\jdate{2018年7月25日}
-\edate{July~25, 2018}
+\jdate{2018年12月19日}
+\edate{December~19, 2018}
 
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}%
 
@@ -118,26 +119,33 @@ casino, blackjack, basic strategies, complexity
 \input{purpose/purpose.tex}
 \chapter{ベーシックストラテジーの検証}
 \input{./verification.tex}
+\input{verification/experiment.tex}
+\chapter{遺伝的アルゴリズム}
+\input{geneticalgorithm.tex}
+\input{GAimprove.tex}
 \chapter{シミュレーション}
 \input{simulation/simulator.tex}
 \input{simulation/random.tex}
 \chapter{検証結果}
 \input{verification/statistics.tex}
 \input{verification/complexity.tex}
+\input{verification/betsimulation.tex}
 \chapter{前期活動}
 \input{./previousactivity.tex}
 \chapter{後期目標}
 \input{./lategoal.tex}
 \chapter{中間発表の評価}
-\input{./evaluation.tex}
+\input{./evaluation/evaluation.tex}
+\chapter{最終成果発表の評価}
+\input{./evaluation/evaluation.tex}
 
 \input{reference/reference.tex}
 
-%暫定削除予定
-%\input{./neuralnetwork.tex}
-%\input{./parameter.tex}
-%\input{./neuro2.tex}
-%\input{./geneticalgorithm.tex}
+\chapter{付録}
+\input{appendix/simulator_source.tex}
 
+%\input{appendix/crass_Card.tex}
+%\input{appendix/crass_Deck.tex}
+%\input{appendix/crass_GamePlayer.tex}
 
 \end{document}
