@@ -1,0 +1,156 @@
+\section{一定ベット}
+ここからはシミュレーションに賭け金を導入していく。\\
+　まずは、賭け金を常に一定として、所持金がどのように変化するのかをシミュレーションで調べる。このシミュレーションでは最初の所持金を1000とし、常に10賭け、勝負を連続で40回行う。これを50000セット行う。また戦略はダブルダウンやスプリットなどが入ったベーシックストラテジー(BS)とヒットとスタンドのみのベーシックストラテジー(BS-HS)、GAで作成した戦略(GA戦略)の3つを使用する。シミュレーション結果を図\ref{betdife}と表\ref{bet}で示す。
+\begin{figure}[H]
+ \begin{center} 
+  \includegraphics[width=0.7\linewidth]{./figure/bet-defineite-ver5}
+  \caption{一定ベット\label{betdife}}
+ \end{center}
+\end{figure}
+
+\begin{table}[H]
+ \caption{一定ベットの所持金\label{bet}}
+ \begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline  & 40回目の平均所持金 & 標準偏差 \\
+  \hline BS & 998.328 & 73.538\\
+  \hline BS-HS & 990.499 & 62.013 \\
+  \hline GA戦略 & 983.470 & 62.401\\
+  \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+図\ref{betdife}では所持金は勝負を重ねるたびに少しずつ少なくなっていて、最後の40回目では最初の所持金である1000より少し少なくなっているように見える。そこで表\ref{bet}を見ると40回目のそれぞれの所持金が分かるが、ベーシックストラテジー、ヒットスタンドのみのベーシックストラテジー、GA戦略の順で多いことが分かる。どの戦略でも最初の所持金である1000を超えることはないことが分かった。\\
+　賭け金が一定では最初の所持金を超えることができなかった。そのため賭け金を変動させることが必要だと考えた。まず、この勝負40回の中で勝率が変動するところがないかを確認した。勝負のどこかで勝率が高くなれば賭け金をあげ、低くなれば賭け金を下げることで所持金を増やそうと考えたためである。また、カウンティングという手法を用いてみるという2つの手法を考えた。
+\bunseki{※柿崎大輝}
+
+\section{カウンティング}
+カウンティングで賭け金を変動させ、所持金を調べる。カウンティングはKO法とHigh-Low法の2種類を用いる。そのほかの条件は一定ベットの時のシミュレーションと同じとした。シミュレーション結果を図\ref{KO}と図\ref{Hi-Lo}と表\ref{countting}で示す。
+\begin{figure}[H]
+ \begin{center} 
+  \includegraphics[width=0.7\linewidth]{./figure/KO}
+  \caption{カウンティングKO法\label{KO}}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center} 
+  \includegraphics[width=0.7\linewidth]{./figure/Hi-Lo}
+  \caption{カウンティングHigh-Low法\label{Hi-Lo}}
+ \end{center}
+\end{figure}
+
+\begin{table}[H]
+ \caption{カウンティングの所持金\label{countting}}
+ \begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline  & 40回目の平均所持金 & 標準偏差 \\
+  \hline KO法BS & 1000.237 & 172.770\\
+  \hline KO法BS-HS & 987.207 & 148.615 \\
+  \hline KO法GA戦略 & 976.380 & 145.821\\
+  \hline High-Low法BS & 1027.961 & 298.197\\
+  \hline High-Low法BS-HS  & 997.561 & 262.546\\
+  \hline High-Low法GA戦略 & 981.315 & 263.162\\
+  \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+図\ref{KO}でKO法を見ると一定ベットの時とあまり変化がないように見えるが、表\ref{countting}で見るとベーシックストラテジーの所持金が増加していることが分かる。図\ref{Hi-Lo}のHigh-Low法ではで増えていることがはっきりと分かる。表\ref{countting}で見てもすべての戦略で一定ベットの時よりも増えていることが分かる。しかし、標準偏差が一定ベットやKO法の2つより大きく、安定していないことが分かる。カウンティングを使うことでベーシックストラテジーでは1000を超えることができた。ただ、ヒットスタンドのみのベーシックストラテジーやGA戦略では1000を超すことはできなかった。\\
+　ここで注目するのはGA戦略である。一定ベットやカウンティングを使用しても所持金がすべての戦略で一番少なかった。GA戦略は遺伝子アルゴリズムで探索し、発見した戦略であるのになぜ他の戦略より悪い結果となったのか。それは複雑性ということを考慮していないからではないかと考えた。GA戦略は勝率と複雑性からなる性能で探索したもので、行ったシミュレーションでは複雑性を考慮する部分がなく、その結果一番悪い結果となったと考えた。そこで複雑性を確かめる実験の結果を用いて、"エラー率"という指標を作成し、シミュレーションに導入して行うこととした。
+\bunseki{※柿崎大輝}
+
+\section{エラー率}
+エラー率を導入して、シミュレーションを行う。エラー率は戦略に従って行動するときにミスをする確率で、ミスをすると戦略表とは異なる行動を実行するようにした。それ以外の部分は前のシミュレーションと同じ条件とした。表\ref{err}が戦略ごとのエラー率で、図\ref{errKO}と図\ref{errHi-Lo}、表\ref{money-err}がシミュレーション結果である。
+\begin{table}[H]
+ \caption{戦略ごとのエラー率\label{err}}
+ \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline 戦略 & エラー率(\%) \\
+  \hline BS & 16.2\\
+  \hline BS-HS & 4.8 \\
+  \hline GA戦略 & 0.5\\
+  \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+\begin{figure}[H]
+ \begin{center} 
+  \includegraphics[width=0.7\linewidth]{./figure/errKO}
+  \caption{エラー率ありのKO法\label{errKO}}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center} 
+  \includegraphics[width=0.7\linewidth]{./figure/errHi-Lo}
+  \caption{エラー率ありのHigh-Low法\label{errHi-Lo}}
+ \end{center}
+\end{figure}
+
+\begin{table}[H]
+ \caption{エラー率を使用した際の所持金\label{money-err}}
+ \begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline  & 40回目の平均所持金 & 標準偏差 \\
+  \hline KO法BS & 923.303 & 174.255\\
+  \hline KO法BS-HS & 963.799 & 150.135 \\
+  \hline KO法GA戦略 & 974.817 & 144.821\\
+  \hline High-Low法BS & 948.394 & 79.764\\
+  \hline High-Low法BS-HS  & 975.440 & 67.263\\
+  \hline High-Low法GA戦略 & 981.474 & 67.747\\
+  \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+エラー率を導入した結果ではGA戦略、ヒットスタンドのみのベーシックストラテジー、ベーシックストラテジーの順となり、所持金が1番多かったベーシックストラテジーと1番少なかったGA戦略が入れ替わった。特にベーシックストラテジーはエラー率を導入することで大きく所持金が少なくなった。またエラー率を導入したシミュレーションでは1000を超える戦略はないことが分かった\\
+　エラー率を導入した場合、GA戦略が1番優れていることが分かった。しかし、GA戦略では1000を超えることができないことも分かった。この点にGA戦略は改善がする必要があると考えられる。
+\bunseki{※柿崎大輝}
+
+\section{分散分析}
+エラー率を導入したシミュレーションの時、3つの戦略間で40回目の平均所持金に有意な差があるかどうかを調べる。まず、3つの戦略において有意な差があるかどうかを調べるため、分散分析を行った。優位水準は5\%、KO法とHigh-Low法の2種類で行った。表\ref{conditions-b}で分散分析の条件をまとめた。
+\begin{table}[H]
+ \caption{分散分析の条件\label{conditions-b}}
+ \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline 帰無仮説 & 3つの戦略で平均所持金に有意な差はない \\
+  \hline 対立仮説 & 3つの戦略で平均所持金に有意な差はある \\
+  \hline 有意水準 & 5\% \\
+  \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+分散分析を行うと、KO法、High-Low法のp値がとても小さくなり、0.05以下となる。よって帰無仮説を棄却し、対立仮説を採択する。つまり、3つの戦略で有な差が存在することが確認できた。次は3つの戦略のどこに有意な差が存在するのかを調べるためにここから多重比較を行う。
+\bunseki{※柿崎大輝}
+\section{多重比較}
+それぞれの戦略で有意な差があるかを調べため、多重比較を行った。有意水準を5\%として行った。結果は表\ref{multiKO}と表\ref{multiHigh-Low}に示す。
+\begin{table}[H]
+ \caption{KO法での多重比較\label{multiKO}}
+ \begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline  & BS & BS-HS  \\
+  \hline  BS-HS 所持金の差 & 40.496 & \\
+	               p値 & 0 & \\
+  \hline GA 所持金の差　& 51.515 & 11.019\\
+                p値 & 0 & 0\\
+  \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+\begin{table}[H]
+ \caption{KO法での多重比較\label{multiHigh-Low}}
+ \begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline  & BS & BS-HS  \\
+  \hline  BS-HS 所持金の差 & 27.046 & \\
+	               p値 & 0 & \\
+  \hline GA 所持金の差　& 33.080 & 6.034\\
+                p値 & 0 & 0\\
+  \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+　KO法とHigh-Low法の両方ですべてのp値は0.05以下となり、有意な差が存在することが分かった。
+\bunseki{※柿崎大輝}
