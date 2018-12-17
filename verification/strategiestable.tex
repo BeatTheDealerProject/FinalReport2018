@@ -16,53 +16,43 @@ H:ヒット  S:スタンド  D:ダブルダウン  P:スプリット
 この戦略は、原著のベーシックストラテジーではなく、Kamron氏の"The Expected Value of an Advantage Blackjack player"に掲載されていたものを参考にしたものである。
 この戦略ではスプリット、ダブルダウンを使用する。
 
-\begin{table}[htbt]
-  \centering
-  \caption{BS\label{bs}}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-    \multicolumn{2}{|c|}{} & \multicolumn{10}{|c|}{ディーラーのアップカード} \\ \hline
-    \multicolumn{2}{|c|}{} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
-    プレイヤーの手札 & 19以上 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & 18 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & 17 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & 16 & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-12}
-              & 15 & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-12}
-              & 14 & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-12}
-              & 13 & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-12}
-              & 12 & H & H & S & S & S & H & H & H & H  & H \\ \cline{3-12}
-              & 11 & D & D & D & D & D & D & D & D & D  & H \\ \cline{3-12}
-              & 10 & D & D & D & D & D & D & D & D & H  & H \\ \cline{3-12}
-              & 9 & H & D & D & D & D & H & H & H & H  & H \\ \cline{3-12}
-              & 8以下 & H & H & H & H & H & H & H & H & H  & H \\ \hline
-
-
-    \multicolumn{2}{|c|}{} & \multicolumn{10}{|c|}{ディーラーのアップカード} \\ \hline
-    \multicolumn{2}{|c|}{} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
-    プレイヤーの手札 & A10 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & A9 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & A8 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & A7 & S & D & D & D & D & S & S & H & H  & H \\ \cline{3-12}
-              & A6 & H & D & D & D & D & H & H & H & H  & H \\ \cline{3-12}
-              & A5 & H & H & D & D & D & H & H & H & H  & H \\ \cline{3-12}
-              & A4 & H & H & D & D & D & H & H & H & H  & H \\ \cline{3-12}
-              & A3 & H & H & H & D & D & H & H & H & H  & H \\ \cline{3-12}
-              & A2 & H & H & H & D & D & H & H & H & H  & H \\ \hline
-
-    \multicolumn{2}{|c|}{} & \multicolumn{10}{|c|}{ディーラーのアップカード} \\ \hline
-    \multicolumn{2}{|c|}{} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
-    プレイヤーの手札 & AA & P & P & P & P & P & P & P & P & P  & P \\ \cline{3-12}
-              & 1010 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & 99 & P & P & P & P & P & S & P & P & S  & S \\ \cline{3-12}
-              & 88 & P & P & P & P & P & P & P & P & P  & P \\ \cline{3-12}
-              & 77 & P & P & P & P & P & P & H & H & H  & H \\ \cline{3-12}
-              & 66 & P & P & P & P & P & H & H & H & H  & H \\ \cline{3-12}
-              & 55 & D & D & D & D & D & D & D & D & H  & H \\ \cline{3-12}
-              & 44 & H & H & H & P & P & H & H & H & H  & H \\ \cline{3-12}
-              & 33 & P & P & P & P & P & P & H & H & H  & H \\ \cline{3-12}
-              & 22 & P & P & P & P & P & P & H & H & H  & H \\ \hline
-
-\end{tabular}
+\begin{table}H]
+    \begin{center}
+    \caption{BS}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{\multirow{2}{*}{}}                     & \multicolumn{10}{c|}{ディーラーのアップカード}     \\ \cline{4-13} 
+    \multicolumn{3}{|c|}{}                                      & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
+    \multirow{28}{*}{手札の合計} & \multirow{9}{*}{ハードハンド}   & 9     & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 10    & H & D & D & D & D & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 11    & D & D & D & D & D & D & D & D & H  & H \\ \cline{3-13} 
+                            &                           & 12    & D & D & D & D & D & D & D & D & D  & D \\ \cline{3-13} 
+                            &                           & 13    & H & H & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 14    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 15    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 16    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 17以上  & S & S & S & S & S & S & S & S & S  & S \\ \cline{2-13} 
+                            & \multirow{9}{*}{ソフトハンド}   & A,2   & H & H & H & D & D & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,3   & H & H & H & D & D & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,4   & H & H & D & D & D & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,5   & H & H & D & D & D & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,6   & H & D & D & D & D & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,7   & S & D & D & D & D & S & S & H & H  & H \\ \cline{3-13} 
+                            &                           & A,8   & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-13} 
+                            &                           & A,9   & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-13} 
+                            &                           & A,10  & S & S & S & S & S & S & S & S & S  & S \\ \cline{2-13} 
+                            & \multirow{10}{*}{スプリット可能} & A,A   & P & P & P & P & P & P & P & P & P  & P \\ \cline{3-13} 
+                            &                           & 2,2   & P & P & P & P & P & P & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 3,3   & P & P & P & P & P & P & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 4,4   & H & H & H & P & P & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 5,5   & D & D & D & D & D & D & D & D & H  & H \\ \cline{3-13} 
+                            &                           & 6,6   & P & P & P & P & P & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 7,7   & P & P & P & P & P & P & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 8,8   & P & P & P & P & P & P & P & P & P  & P \\ \cline{3-13} 
+                            &                           & 9,9   & P & P & P & P & P & S & P & P & S  & S \\ \cline{3-13} 
+                            &                           & 10,10 & S & S & S & S & S & S & S & S & S  & S \\ \hline
+    \end{tabular}
+    \end{center}
 \end{table}
 
 
@@ -73,36 +63,32 @@ H:ヒット  S:スタンド  D:ダブルダウン  P:スプリット
 \subsection{戦略2：BS-HS}
 この戦略は、ベーシックストラテジーの表からヒット、スタンドのみを選択したものである。
 
-\begin{table}[htbt]
-  \centering
-  \caption{BS-HS\label{bs_hs}}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-    \multicolumn{2}{|c|}{} & \multicolumn{10}{|c|}{ディーラーのアップカード} \\ \hline
-    \multicolumn{2}{|c|}{} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
-    プレイヤーの手札 & 19以上 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
-              & 18 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
-              & 17 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
-              & 16 & S & S & S & S & S & H & H & H & H & H \\ \cline{3-12}
-              & 15 & S & S & S & S & S & H & H & H & H & H \\ \cline{3-12}
-              & 14 & S & S & S & S & S & H & H & H & H & H \\ \cline{3-12}
-              & 13 & S & S & S & S & S & H & H & H & H & H \\ \cline{3-12}
-              & 12 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
-              & 11以下 & H & H & H & H & H & H & H & H & H & H \\ \hline
-
-    \multicolumn{2}{|c|}{} & \multicolumn{10}{|c|}{ディーラーのアップカード} \\ \hline
-    \multicolumn{2}{|c|}{} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
-    プレイヤーの手札 & A10 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & A9 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & A8 & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-12}
-              & A7 & S & S & S & S & S & S & S & H & H  & H \\ \cline{3-12}
-              & A6 & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-12}
-              & A5 & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-12}
-              & A4 & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-12}
-              & A3 & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-12}
-              & A2 & H & H & H & H & H & H & H & H & H  & H \\ \hline
-
-\end{tabular}
+\begin{table}[H]
+    \begin{center}
+    \caption{BS-HS}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{\multirow{2}{*}{}}                     & \multicolumn{10}{c|}{ディーラーのアップカード}     \\ \cline{4-13} 
+    \multicolumn{3}{|c|}{}                                      & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
+    \multirow{28}{*}{手札の合計} & \multirow{9}{*}{ハードハンド}   & 9     & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 10    & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 11    & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 12    & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 13    & H & H & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 14    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 15    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 16    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & 17以上  & S & S & S & S & S & S & S & S & S  & S \\ \cline{2-13} 
+                            & \multirow{9}{*}{ソフトハンド}   & A,2   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,3   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,4   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,5   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,6   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
+                            &                           & A,7   & S & S & S & S & S & S & S & H & H  & H \\ \cline{3-13} 
+                            &                           & A,8   & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-13} 
+                            &                           & A,9   & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-13} 
+    \end{tabular}
+    \end{center}
 \end{table}
 
 \bunseki{※渡邊凛}
