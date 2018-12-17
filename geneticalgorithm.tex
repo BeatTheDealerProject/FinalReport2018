@@ -100,6 +100,9 @@ $$P(i) = \frac{f_i}{\sum_k f_k}$$
 個体数の設定については様々な方針が提案されているが、今回は遺伝子長よりも多い数の個体を用意するというものにした。
 突然変異率については遺伝子長の逆数とするという方法が考案されていたため、採用した。今回の場合だと$1/180$となっている。
 
+また、初期個体として、ベーシックストラテジーを行う個体を5個体、14以上でスタンドする個体を5個体、15以上でスタンドする個体を5個体、16以上でスタンドする個体を5個体それぞれ設定した。
+これは、事前の実験で完全にランダムな初期個体のみだと上手く性能が向上しないということが明らかであったからである。
+
 ブラックジャックのゲームを行うときの条件は次のように設定した。
 
 \begin{itemize}
@@ -111,7 +114,7 @@ $$P(i) = \frac{f_i}{\sum_k f_k}$$
 \bunseki{※米村祥裕}
 
 \subsection{実験結果}
-遺伝的アルゴリズムによるシミュレーションを行った結果、図に示すような性能の推移となった。図中のmaxは最優秀性能の個体の適応度を
+遺伝的アルゴリズムによるシミュレーションを行った結果、図\ref{gaprocess}に示すような性能の推移となった。図\ref{gaprocess}中のmaxは最優秀性能の個体の適応度を
 表している。minは最低性能の個体の適応度、meanは全個体の適応度の平均値、medianは全個体の適応度の中央値、top\_meanは上位10個体の適応度の平均値、
 top\_medianは上位10個体の適応度の中央値を表している。
 
@@ -120,6 +123,49 @@ top\_medianは上位10個体の適応度の中央値を表している。
     \caption{遺伝的アルゴリズムによるシミュレーションの進行}
     \label{gaprocess}
   \end{figure}
+
+結果として得られた最優秀な個体の戦略が表\ref{gastrategyhard}、表\ref{gastrategysoft}である。
+ハードハンドでは、13以下はすべてヒット、14以上でスタンドという戦略になっている。
+ソフトハンドでは、ヒットとスタンドのみのベーシックストラテジーに対してプレイヤーの手札がA7でディーラーのアップカードが
+9の時がヒットからスタンドに変わっており、プレイヤーの手札がA7でディーラーのアップカードがAの時がスタンドからヒットに変わっているという形になっている。
+
+  \begin{table}[htbp]
+    \centering
+    \caption{GA戦略(ハードハンド)\label{gastrategyhard}}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      \multicolumn{2}{|c|}{} & \multicolumn{10}{|c|}{ディーラーのアップカード} \\ \hline
+      \multicolumn{2}{|c|}{} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
+      手札の合計 & 19以上 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
+                & 18 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
+                & 17 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
+                & 16 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
+                & 15 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
+                & 14 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
+                & 13 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & 12 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & 11以下 & H & H & H & H & H & H & H & H & H & H \\ \hline
+    \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+    \centering
+    \caption{GA戦略(ソフトハンド)\label{gastrategysoft}}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      \multicolumn{2}{|c|}{} & \multicolumn{10}{|c|}{ディーラーのアップカード} \\ \hline
+      \multicolumn{2}{|c|}{} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
+      手札の合計 & AA & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & A2 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & A3 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & A4 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & A5 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & A6 & H & H & H & H & H & H & H & H & H & H \\ \cline{3-12}
+                & A7 & S & S & S & S & S & S & S & S & H & H \\ \cline{3-12}
+                & A8 & S & S & S & S & S & S & S & S & S & S \\ \cline{3-12}
+                & A9 & S & S & S & S & S & S & S & S & S & S \\ \hline
+    \end{tabular}
+  \end{table}
 
 \bunseki{※米村祥裕}
 
