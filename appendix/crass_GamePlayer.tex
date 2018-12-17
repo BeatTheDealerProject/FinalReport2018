@@ -5,22 +5,16 @@ class GamePlayer:
 
     # 初期化関数
     def __init__(self):
-        # 参加者の手札
-        self.cards = []  
-        # 参加者の手札の合計値
-        self.total = 0  
-        # 参加者の手札に含まれるAの枚数
-        self.acetotal = 0  
-        # 1として数えたAの枚数
-        self.usedace = 0  
-        # バーストしているかどうか
-        self.burst = False  
-        # ナチュラルブラックジャックを満たしているかどうか
-        self.naturalbj = False 
-        # 手札の合計値が21 になっているかどうか
-        self.normalbj = False  
+        self.cards = []
+        self.total = 0
+        self.acetotal = 0
+        self.usedace = 0
+        self.burst = False
+        self.naturalbj = False
+        self.normalbj = False
+        self.surrendeflg = False
 
-    # 子オブジェクトから呼び出せる初期化関数
+    # 　子オブジェクトから呼び出せる初期化関数
     def initialize(self):
         self.cards = []
         self.total = 0
@@ -29,6 +23,7 @@ class GamePlayer:
         self.burst = False
         self.naturalbj = False
         self.normalbj = False
+        self.surrendeflg = False
 
     # ゲームプレイヤーの手札の合計値を返す関数
     def totalvalue(self):
@@ -38,137 +33,21 @@ class GamePlayer:
         cardnum = len(self.cards)
 
         while i < cardnum:
-            if (self.cards[i].rank == 'A'):
+            if self.cards[i].rank == 'A':
                 self.acetotal += 1
             self.total += self.cards[i].value
             i += 1
         self.total -= 10 * self.usedace
 
         # プレイヤーのバースト判定の処理
-        if (self.total > 21):
-            if (self.acetotal - self.usedace > 0):
+        if self.total > 21:
+            if self.acetotal - self.usedace > 0:
                 self.total -= 10
                 self.usedace += 1
-                if (self.total > 21):
+                if self.total > 21:
                     self.burst = True
             else:
                 self.burst = True
 
-\end{lstlisting}
-\end{itemize}
-
-\begin{itemize}
-\item プレイヤークラス
-\begin{lstlisting}
-class Player(GamePlayer):
-    # プレイヤーの初期化
-    def __init__(self, name):
-        self.name = name  # プレイヤーの名前
-        self.totalwin = 0  # プレイヤーの勝利回数
-        self.totallose = 0  # プレイヤーの敗北回数
-        super().__init__()
-
-    # プレイヤーがカードを受け取る時に使用する関数
-    def dealedcard(self, card):
-        self.cards.append(card)
-
-    # プレイヤー側のヒットの処理
-    def hit(self, dealer):
-        self.dealedcard(dealer.dealcard())
-        self.showhands()
-
-    # プレイヤー側のスタンドの処理
-    def stand(self):
-        pass
-
-    # プレイヤーの勝利回数を増やす
-    def addtotalwin(self):
-        self.totalwin += 1
-
-    # プレイヤーの敗北回数を増やす
-    def addtotallose(self):
-        self.totallose += 1
-
-\end{lstlisting}
-\end{itemize}
-
-\begin{itemize}
-\item ディーラークラス（デック数有限）
-\begin{lstlisting}
-class Dealer(GamePlayer):
-    # ディーラーの初期化
-    def __init__(self, deckNum):
-        self.deck = Deck(deckNum)
-        # ディーラーがシャッフルする回数。今回は一万回シャッフルする。
-        self.shufflenum = 10000
-        self.deck.shuffle(deckNum * self.shufflenum)
-        super().__init__()
-
-    # カードを配る関数
-    def dealcard(self):
-        ''' デック数有限の際はこちらのコメントアウトを解除する '''
-        card = self.deck.Cards[self.deck.current]
-        self.deck.current += 1
-        
-        ''' デック数無限の際にはこちらのコメントアウトを解除する '''
-        # randomcard = random.randrange(13);
-        # card = Card(Card.RANKS[randomcard], Card.SUITS[0])
-        # return card
-
-    # 一番最初にカードを配る際の関数
-    def firstdeal(self, player):
-        super().__init__()
-        for x in player:
-            x.initialize()
-        firstdeal = 2
-        while firstdeal > 0:
-            self.cards.append(self.dealcard())
-            for x in player:
-                x.cards.append(self.dealcard())
-            firstdeal -= 1
-
-    # 合計が17 を超えるまで引き続ける処理
-    def continuehit(self):
-        self.totalvalue()
-        while (self.total < 17):
-            self.cards.append(self.dealcard())
-            self.totalvalue()
-
-\end{lstlisting}
-\end{itemize}
-
-\begin{itemize}
-\item ゲームマネージャークラス
-\begin{lstlisting}
-class GameManager:
-    def __init__(self, players, dealer):
-        self.players = players
-        self.dealer = dealer
-        self.checkdeal = True
-
-    # 各プレイヤーとディーラーとの間で勝敗を決める
-    def judge(self):
-        for x in self.players:
-            self.checkblackjack(x)
-        self.checkblackjack(self.dealer)
-        for player in self.players:
-            if player.burst == True:
-                player.addtotallose()
-            elif player.burst == False and self.dealer.burst == True:
-                player.addtotalwin()
-            elif player.total > self.dealer.total:
-                player.addtotalwin()
-            elif player.total < self.dealer.total:
-                player.addtotallose()
-            elif player.total == self.dealer.total:
-                if player.naturalbj and self.dealer.naturalbj:
-                elif player.naturalbj and self.dealer.normalbj:
-                    player.addtotalwin()
-                elif player.normalbj and self.dealer.naturalbj:
-                    player.addtotallose()
-                elif player.normalbj and self.dealer.normalbj:
-                    pass
-                else:
-                    pass
 \end{lstlisting}
 \end{itemize}
