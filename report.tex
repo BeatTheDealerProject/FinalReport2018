@@ -70,11 +70,11 @@
 
 % 和文概要
 \begin{jabstract} 
-\ \ 本プロジェクトでは、カジノにおいて最もポピュラーなゲームの一つであるブラックジャックを取り扱っている。ブラックジャックに関する代表的な行動戦略としてベーシックストラテジー、そしてカウンティングという戦略が存在する。プレイヤーはこれらの戦略を用いることでブラックジャックの期待利得を増やすことができた。しかしカジノ側がカウンティングへの対策をしたことで、ブラックジャックにおいてカウンティングを使用することができなくなり、プレイヤーが利得を得ることは難しくなった。そこで我々は既存の戦略と比較し、以下の2つの観点から優れている戦略を新たに見つけ出すことをプロジェクトの目標とした。1つ目の観点はプレイヤーにとって扱いやすく、実行可能な戦略であること、2つ目は最終的な利得が他の戦略より大きくできることである。
+\ \ 本プロジェクトでは、カジノにおいて最もポピュラーなゲームの一つであるブラックジャックを取り扱っている。ブラックジャックに関する代表的な行動戦略としてベーシックストラテジー、カウンティングという戦略が存在する。プレイヤーはこれらの戦略を用いることでブラックジャックの期待利得を増やすことができた。しかしカジノ側がカウンティングへの対策をしたことで、ブラックジャックにおいてカウンティングを使用することができなくなり、プレイヤーが利得を得ることは難しくなった。そこで我々は既存の戦略と比較し、以下の2つの観点から優れている戦略を新たに見つけ出すことをプロジェクトの目標とした。1つ目の観点はプレイヤーにとって扱いやすく、実行可能な戦略であること、2つ目は最終的な利得が他の戦略より大きくできることである。
 
-\ \ 前期ではベーシックストラテジーについてどの程度確かな戦略なのか、他の戦略に比べてどの程度プレイヤーに有利な戦略なのかを検証した。検証ではブラックジャックのシミュレータを作成しシミュレーションを行うことで、各戦略の勝率を調べた。さらに戦略の扱いやすさを判断するために、我々は戦略の複雑性を新しく定義した。そして戦略の勝率と複雑性を合わせた性能指標から戦略の評価を行なった。検証の結果から、複雑性を考慮した場合にはベーシックストラテジーには改善の余地があることがわかった。
+\ \ 前期では、我々はベーシックストラテジーについてどの程度確かな戦略なのか、他の戦略に比べてどの程度プレイヤーに有利な戦略なのかを検証した。検証ではブラックジャックのシミュレータを作成しシミュレーションを行うことで、各戦略の勝率を調べた。さらに戦略の扱いやすさを判断するために、我々は戦略の複雑性を新しく定義した。そして戦略の勝率と複雑性を合わせた性能指標から戦略の評価を行なった。検証の結果から、複雑性を考慮した場合にはベーシックストラテジーには改善の余地があることがわかった。
 
-\ \ 後期では前期に定義した複雑性の検証、GAを用いた新たな戦略の探索、シミュレータの改良を行った。複雑性の検証では実際に戦略を覚えてもらう実験を行った。実験の結果を分析したところ、複雑性が正しい指標であることが確認できた。GAでは複雑性を含めた性能指標を用いて戦略を探索し、優秀な戦略を得ることができた。シミュレータには賭け金の仕組みを導入することで、勝率だけではなく利得を計算できるようになった。その後GAから得られた戦略とベーシックストラテジーを比較するためシミュレーションを行った。戦略間の比較では扱いやすさを考慮するため、プレイヤーが戦略を覚え間違える度合いをエラー率として新たに定義しシミュレーションを行った。シミュレーションの結果からGAの戦略がベーシックストラテジーよりも扱いやすさと利得の両方の点から優れていることが分かった。
+\ \ 後期では前期に定義した複雑性の検証、GAを用いた新たな戦略の探索、シミュレータの改良を行った。複雑性の検証では実際に戦略を覚えてもらう実験を行った。実験の結果を分析したところ、複雑性が正しい指標であることが確認できた。GAでは複雑性を含めた性能指標を用いて戦略を探索し、優秀な戦略を得ることができた。シミュレータには賭け金の仕組みを導入することで、勝率だけではなく利得を計算できるようになった。その後GAから得られた戦略とベーシックストラテジーを比較するためシミュレーションを行った。シミュレーションでは扱いやすさを考慮するため、プレイヤーが戦略を覚え間違える度合いをエラー率として新たに定義し、戦略間の比較を行った。シミュレーションの結果からGAの戦略がベーシックストラテジーよりも扱いやすさと利得の両方の点から優れていることが分かった。
 
 % 和文キーワード
 \begin{jkeyword}
@@ -84,14 +84,12 @@
 \end{jabstract}
 
 %英語の概要
-\begin{eabstract} 
-\ \ In this project, we deal with Blackjack, one of the most popular games in the casino. There are
-also basic strategies and counting as representative behavior strategies concerning Blackjack. This
-has increased the player's expectation gain and created a situation that is also true for the player. It is difficult to easily adopt and execute the strategy by the casino side measures, and the expected value has also been reduced. Then, we tried to find a winning strategy from three perspectives compared to existing strategy. First, to find a strategy with high winning percentage above 50\%. Second, to avoid casino side detection. Finally, to make it easy for players to memorize and execute. In finding a strategy, we have verified to what extent the strategy called the basic strategy which 
-is most familiar as an existing strategy is confirmed up to now and to what extent it is advantageous to 
-the player compared with other methods which can simply be considered. We made a blackjack simulator and 
-simulated it. Based on the winning percentage, we compared the merits of strategies. At this time, considering 
-the complexity of the strategy, the result that the basic strategy has room for improvement was obtained.
+\begin{eabstract}
+\ \  In this project, we deal with Blackjack, one of the most popular games in the casino. There are Basic Strategy and Counting as representative behavior strategy concerning Blackjack. Players were able to increase the expected gains of Blackjack by using these strategies.  However, as the casino side took countermeasures, Counting could not be used in Blackjack, and making it difficult for players to get gains. Therefore, we have set the goal of the project to discover superior strategies from the following two points in comparison with existing strategies. The first point is that it is easy for players to play and usable strategy, and the second is that the final gain can be larger than other strategies.
+
+\ \ In the previous term, we examined how accurate the basic strategy, and how much it is advantageous to players compared with other strategies. In the verification, we created a simulator of Blackjack and conducted a simulation to investigate the winning percentage of each strategy. In addition, to determine the easy to handle of the strategy, we newly defined the complexity of the strategy. And we evaluated the strategy from the evaluation index which combined the winning percentage and the complexity of the strategy. From the results of the verification, it was found that there is room for improvement in the basic strategy when considering the complexity.
+
+\ \ In the latter term, we verified the complexity defined in the previous term, searched for new strategies using Genetic algorithm, and improved the simulator. In the verification of complexity, we conducted an experiment to actually remember the strategy. From analyzed the results of the experiment, so we confirmed that the complexity is the correct index. In the Genetic algorithm, we were able to explore strategies using performance index including complexity and obtain excellent strategies. By introducing a mechanism of betting on the simulator, it became possible to calculate not only the winning percentage but also the gain. Then conducted a simulation to compare the strategy obtained from Genetic algorithm with the basic strategy. In this simulation, in order to handle ease of handling, the degree to which the player misunderstands the strategy is newly defined as an error rate, and comparison between the strategies was made. Simulation results show that Genetic algorithm's strategy is superior to basic strategy in terms of both ease of handling and final gain.
 % 英文キーワード
 
 \begin{ekeyword}
