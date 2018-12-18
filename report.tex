@@ -68,38 +68,34 @@
 %前付け
 \frontmatter
 
-% 和文概要
+ 和文概要
 \begin{jabstract} 
-\ \ 本プロジェクトでは、カジノにおいて最もポピュラーなゲームの一つであるブラックジャックを取り扱っている。
-ブラックジャックに関する代表的な行動戦略としてベーシックストラテジー、カウンティングというものがある。これ
-らはプレイヤーの期待利得を増大させプレイヤーにとって有利な状況を作り出した。しかしカジノ側の対策によって、
-戦略を単純に採用し実行することは困難になり、期待利得も減少することになった。そこで我々は既存の戦略と比較して
- 3つの観点から優れた戦略を見つけ出すことを試みた。1つ目は勝率を5割以上の戦略を見つけることである。2つ目はカジノ側の対策を回避することである。3つ目はプレイヤーが覚えやすく、実行可能なものであることである。
+\ \本プロジェクトでは、カジノにおいて最もポピュラーなゲームの一つであるブラックジャックを取り扱っている。
+我々はブラックジャックにおいて総合的に優秀な戦略を探索することをプロジェクトの目的としている。
+このプロジェクトにおいて、優秀な戦略とは、利得が他の戦略より大きく、プレイヤーにとって扱いやすい戦略である。
+扱いやすい戦略を探索するために、我々は戦略の複雑性を定義した。また、複雑性とゲームプレイ時の勝率とを
+合わせた性能指標についても定義した。定義した性能指標を用いて戦略を探索した結果、新しい戦略を得ることに成功した。
+従来の戦略と新しい戦略とを扱いやすさを考慮して比較するために、プレイヤーのエラーを実装したシミュレーションを行った。
+シミュレーションの結果として我々の戦略が従来の戦略よりも、扱いやすさと利得を考慮した上で優れていることが確認できた。
 
-\ \ 戦略を見つけるにあたって、現在までに我々は既存の戦略として最も有名なベーシックストラテジーと呼ばれる戦略
-についてどの程度確からしく、単純に考えられる他の手法に比べてどの程度プレイヤーに有利なのかを検証した。ブラック
-ジャックのシミュレータを作成し、を行った。その勝率により戦略の優劣を比較した。このとき、戦略の複雑性を考
-慮するとベーシックストラテジーは改善の余地があるという結果が得られた。
 % 和文キーワード
 \begin{jkeyword}
-カジノ,\ ブラックジャック,\ ベーシックストラテジー,\ 複雑性
+カジノ,\ ブラックジャック,\ エラー,\ 複雑性
 \end{jkeyword}
 \bunseki{※轟木文弥}
 \end{jabstract}
 
 %英語の概要
 \begin{eabstract} 
-\ \ In this project, we deal with Blackjack, one of the most popular games in the casino. There are
-also basic strategies and counting as representative behavior strategies concerning Blackjack. This
-has increased the player's expectation gain and created a situation that is also true for the player. It is difficult to easily adopt and execute the strategy by the casino side measures, and the expected value has also been reduced. Then, we tried to find a winning strategy from three perspectives compared to existing strategy. First, to find a strategy with high winning percentage above 50\%. Second, to avoid casino side detection. Finally, to make it easy for players to memorize and execute. In finding a strategy, we have verified to what extent the strategy called the basic strategy which 
-is most familiar as an existing strategy is confirmed up to now and to what extent it is advantageous to 
-the player compared with other methods which can simply be considered. We made a blackjack simulator and 
-simulated it. Based on the winning percentage, we compared the merits of strategies. At this time, considering 
-the complexity of the strategy, the result that the basic strategy has room for improvement was obtained.
+\ \ 　In this project, we research about blackjack what is one of the most popular games in casino. The objective of the project is to explore comprehensively excellent strategies in Blackjack.
+In this project, an excellent strategy is a strategy that gains are larger than other strategies, which is easy for players to handle.To explore a manageable strategy, we defined the complexity of the strategy.
+We also defined performance indicators combining the complexity and the winning percentage during game play.As a result of exploring the strategy using the defined performance index, we succeeded
+in obtaining a new strategy. In order to compare the traditional strategy and the new strategy considering ease of handling, we did simulation implemented with player error. As a result of the simulation,
+we confirmed that our strategy is superior to conventional strategy considering ease of handling and gain.
 % 英文キーワード
 
 \begin{ekeyword}
-casino, blackjack, basic strategies, complexity
+casino, blackjack, error, complexity
 \end{ekeyword}
 \bunseki{※轟木文弥}
 \end{eabstract}
