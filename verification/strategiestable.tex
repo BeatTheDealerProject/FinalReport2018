@@ -6,18 +6,24 @@
   \item BS-HS
   \item GA戦略
 \end{itemize}
-これから、戦略の内BSとBS-HSについて説明する。GA戦略については前述している為省略する。
+
+これから、戦略の内BSについて説明する。BS-HS戦略とGA戦略については前述している為簡単に説明する。
+
 表の文字はそれぞれ以下のように対応している。
-H:ヒット  S:スタンド  D:ダブルダウン  P:スプリット  
+
+（H:ヒット, \ S:スタンド, \ D:ダブルダウン, \ P:スプリット）  
 
 
 \bunseki{※渡邊凛}
 
-\subsection{戦略1：BS}
+\subsection{BSについて}
 この戦略は、Thorp（1962）の1デック用のベーシックストラテジーではなく、Jensen（2014）の4～8デック用のものを参考にしたものである。
-この戦略ではスプリット、ダブルダウンを使用する。
+この戦略表では、スプリット、ダブルダウンが追加されている。
+ルールの項でも説明しているが、スプリットは最初に配られた2枚のカードが同じ数字だった場合、最初の賭け金と同じ金額を追加して、それらのカードを2つに分割し、それぞれの手札で勝負するルールであり、ダブルダウンは賭け金を2倍にして1度のみヒットをし、その後強制的にスタンドするルールである。
+これらの選択肢を戦略に追加することにより、同じ賭け金でもより期待値が高くなる。
+ただし、選択肢が増える分表も大きくなり複雑性が増す為に人間にとって扱いづらく、誤る可能性が高いと言える。
 
-\begin{table}H]
+\begin{table}[htbp]
     \begin{center}
     \caption{BS}
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -60,37 +66,8 @@ H:ヒット  S:スタンド  D:ダブルダウン  P:スプリット
 \bunseki{※渡邊凛}
 
 
+\subsection{BS-HSとGA戦略について}
 
-\subsection{戦略2：BS-HS}
-この戦略は、ベーシックストラテジーの表からヒット、スタンドのみを選択したものである。
-
-\begin{table}[H]
-    \begin{center}
-    \caption{BS-HS}
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-    \hline
-    \multicolumn{3}{|c|}{\multirow{2}{*}{}}                     & \multicolumn{10}{c|}{ディーラーのアップカード}     \\ \cline{4-13} 
-    \multicolumn{3}{|c|}{}                                      & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & A \\ \hline
-    \multirow{28}{*}{手札の合計} & \multirow{9}{*}{ハードハンド}   & 9     & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 10    & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 11    & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 12    & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 13    & H & H & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 14    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 15    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 16    & S & S & S & S & S & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & 17以上  & S & S & S & S & S & S & S & S & S  & S \\ \cline{2-13} 
-                            & \multirow{9}{*}{ソフトハンド}   & A,2   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & A,3   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & A,4   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & A,5   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & A,6   & H & H & H & H & H & H & H & H & H  & H \\ \cline{3-13} 
-                            &                           & A,7   & S & S & S & S & S & S & S & H & H  & H \\ \cline{3-13} 
-                            &                           & A,8   & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-13} 
-                            &                           & A,9   & S & S & S & S & S & S & S & S & S  & S \\ \cline{3-13} 
-    \end{tabular}
-    \end{center}
-\end{table}
+BS-HSはヒットとスタンドのみのベーシックストラテジーであり、表\ref{kihonsenryaku}をそのまま使用している。GA戦略は遺伝的アルゴリズムによって生成された戦略表であり、表\ref{gastrategyhard}、\ref{gastrategysoft}をそのまま使用している。これらの戦略にはダブルダウンやスプリットはなく、ヒットとスタンドのみである。そのため、戦略としては単純になり、人間にとって扱いやすい戦略表となる。
 
 \bunseki{※渡邊凛}
-
