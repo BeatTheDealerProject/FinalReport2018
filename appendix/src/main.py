@@ -1,29 +1,22 @@
-\begin{itemize}
-\item デックを表現するクラス
-\begin{lstlisting}
 def main(strategy):
-    # プレイヤーを作成
+    # create player instance
     p1 = Player("player1")
 
-    # ゲームに参加するプレイヤーを表現
+    # add player who joins game
     players = [p1]
 
-    # ディーラーの作成
-    # 引数はゲームに使用するデッキの数を表現
+    # create dealer instance
+    # the argument expresses deck num used in game
     dealer = Dealer(6)
 
-    # カットカードを表現
-    # 今回はデッキの1/2の位置にカットカードを固定している
+    # this variable expresses cutcard
     cutcard = len(dealer.deck.Cards) / 2
 
-    # ゲーム全体のループ回数
     totalGameNum = 40
     remainingGameNum = 0
 
-    # 最小ベットの宣言
     minbet = 10
 
-    # 最大ベットの宣言
     maxbet = 10000
 
     trial = 50000
@@ -42,7 +35,7 @@ def main(strategy):
                       ]
 
     while True:
-        # メインループ
+        # main loop
         remainingGameNum = totalGameNum
         dealer.deck.shuffle(dealer.shufflenum)
         players[0].money = 1000
@@ -209,6 +202,3 @@ def main(strategy):
                 if remainingGameNum <= 0:
                     break
         trialNum -= 1
-\end{lstlisting}
-\end{itemize}
-\newpage

@@ -1,26 +1,21 @@
-\begin{itemize}
-\item ディーラーを表現するクラス
-\begin{lstlisting}
 class Dealer(GamePlayer):
-    # ディーラーの初期化
     def __init__(self, deckNum):
         self.deck = Deck(deckNum)
         self.totaldealerhandlist = [0] * 6
-        # ディーラーがシャッフルする回数。今回は10000回シャッフルする。
         self.shufflenum = 10000
         self.deck.shuffle(deckNum * self.shufflenum)
-        # ランニングカウント
+        # running count
         self.IRC = 0
         super().__init__()
 
-    # カードを配る関数
+    # to give out card
     def dealcard(self):
 
-        # 無限デック想定の場合
+        # Assumption infinity deck
         card = Card(Card.RANKS[random.randrange(13)], "spade")
         return card
         """
-        # 有限デック想定の場合
+        # Assumption limited deck
         # HiLow
         card = self.deck.Cards[self.deck.current]
         if 2 <= card.value <= 6:
@@ -35,7 +30,7 @@ class Dealer(GamePlayer):
         """
 
 
-    # 一番最初にカードを配る際の関数
+    # initial give out card
     def firstdeal(self, player):
         super().__init__()
         for x in player:
@@ -47,14 +42,9 @@ class Dealer(GamePlayer):
                 x.cards.append(self.dealcard())
             firstdeal -= 1
 
-    # 合計が17を超えるまで続ける処理
+    # process until sum of hand be upper 17
     def continuehit(self):
         self.totalvalue()
         while (self.total < 17):
             self.cards.append(self.dealcard())
             self.totalvalue()
-
-
-\end{lstlisting}
-\end{itemize}
-\newpage

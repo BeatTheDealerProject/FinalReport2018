@@ -1,9 +1,5 @@
-\begin{itemize}
-\item ゲーム参加者を表すスーパークラス
-\begin{lstlisting}
 class GamePlayer:
 
-    # 初期化関数
     def __init__(self):
         self.cards = []
         self.total = 0
@@ -14,7 +10,6 @@ class GamePlayer:
         self.normalbj = False
         self.surrendeflg = False
 
-    # 　子オブジェクトから呼び出せる初期化関数
     def initialize(self):
         self.cards = []
         self.total = 0
@@ -25,7 +20,7 @@ class GamePlayer:
         self.normalbj = False
         self.surrendeflg = False
 
-    # ゲームプレイヤーの手札の合計値を返す関数
+    # This function returns sum of player hand
     def totalvalue(self):
         i = 0
         self.total = 0
@@ -39,7 +34,7 @@ class GamePlayer:
             i += 1
         self.total -= 10 * self.usedace
 
-        # プレイヤーのバースト判定の処理
+        # jundge bust of player
         if self.total > 21:
             if self.acetotal - self.usedace > 0:
                 self.total -= 10
@@ -48,6 +43,3 @@ class GamePlayer:
                     self.burst = True
             else:
                 self.burst = True
-
-\end{lstlisting}
-\end{itemize}

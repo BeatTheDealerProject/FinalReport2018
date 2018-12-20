@@ -1,17 +1,13 @@
-\begin{itemize}
-\item トランプのカードを表現するクラス
-\begin{lstlisting}
 class Card:
     RANKS = ('A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K')
     SUITS = ('Spade', 'Heart', 'Diamond', 'Club')
 
-    # 初期化
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
         self.value = int(self.getvalue())
 
-    # ランクを数字に変換する
+    # translate rank to number
     def getvalue(self):
         if self.rank == 'A':
             return 11
@@ -19,6 +15,3 @@ class Card:
             return 10
         else:
             return self.rank
-\end{lstlisting}
-\end{itemize}
-\newpage
