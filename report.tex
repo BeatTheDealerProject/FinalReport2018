@@ -16,6 +16,25 @@
 \usepackage{listings}
 \usepackage{multirow}
 
+\lstset{
+ 	language = Python,
+ 	%backgroundcolor={\color[white]},
+ 	breaklines = true,
+ 	breakindent = 10pt,
+ 	basicstyle = \ttfamily\scriptsize,
+ 	commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+ 	classoffset = 0,
+ 	keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+ 	stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+ 	frame = TBrl,
+ 	framesep = 5pt,
+ 	numbers = left,
+ 	stepnumber = 1,
+ 	numberstyle = \tiny,
+ 	tabsize = 4,
+ 	captionpos = t
+}
+
 \setcounter{chapter}{1}
 \setcounter{section}{0}
 
@@ -70,38 +89,32 @@
 
 % 和文概要
 \begin{jabstract} 
-\ \ 本プロジェクトでは、カジノにおいて最もポピュラーなゲームの一つであるブラックジャックを取り扱っている。
-ブラックジャックに関する代表的な行動戦略としてベーシックストラテジー、カウンティングというものがある。これ
-らはプレイヤーの期待利得を増大させプレイヤーにとって有利な状況を作り出した。しかしカジノ側の対策によって、
-戦略を単純に採用し実行することは困難になり、期待利得も減少することになった。そこで我々は既存の戦略と比較して
- 3つの観点から優れた戦略を見つけ出すことを試みた。1つ目は勝率を5割以上の戦略を見つけることである。2つ目はカジノ側の対策を回避することである。3つ目はプレイヤーが覚えやすく、実行可能なものであることである。
+\ \ 本プロジェクトでは、カジノにおいて最もポピュラーなゲームの一つであるブラックジャックを取り扱っている。ブラックジャックに関する代表的な行動戦略としてベーシックストラテジー、カウンティングという戦略が存在する。プレイヤーはこれらの戦略を用いることでブラックジャックの期待利得を増やすことができた。しかしカジノ側がカウンティングへの対策をしたことで、ブラックジャックにおいてカウンティングを使用することができなくなり、プレイヤーが利得を得ることは難しくなった。そこで我々は既存の戦略と比較し、以下の2つの観点から優れている戦略を新たに見つけ出すことをプロジェクトの目標とした。1つ目の観点はプレイヤーにとって扱いやすく、実行可能な戦略であること、2つ目は最終的な利得が他の戦略より大きくできることである。
 
-\ \ 戦略を見つけるにあたって、現在までに我々は既存の戦略として最も有名なベーシックストラテジーと呼ばれる戦略
-についてどの程度確からしく、単純に考えられる他の手法に比べてどの程度プレイヤーに有利なのかを検証した。ブラック
-ジャックのシミュレータを作成し、を行った。その勝率により戦略の優劣を比較した。このとき、戦略の複雑性を考
-慮するとベーシックストラテジーは改善の余地があるという結果が得られた。
+\ \ 前期では、我々はベーシックストラテジーについてどの程度確かな戦略なのか、他の戦略に比べてどの程度プレイヤーに有利な戦略なのかを検証した。検証ではブラックジャックのシミュレータを作成しシミュレーションを行うことで、各戦略の勝率を調べた。さらに戦略の扱いやすさを判断するために、我々は戦略の複雑性を新しく定義した。そして戦略の勝率と複雑性を合わせた性能指標から戦略の評価を行なった。検証の結果から、複雑性を考慮した場合にはベーシックストラテジーには改善の余地があることがわかった。
+
+\ \ 後期では前期に定義した複雑性の検証、遺伝的アルゴリズムを用いた新たな戦略の探索、シミュレータの改良を行った。複雑性の検証では実際に戦略を覚えてもらう実験を行った。実験の結果を分析したところ、複雑性が正しい指標であることが確認できた。遺伝的アルゴリズムでは複雑性を含めた性能指標を用いて戦略を探索し、優秀な戦略を得ることができた。シミュレータには賭け金の仕組みを導入することで、勝率だけではなく利得を計算できるようになった。その後、遺伝的アルゴリズムから得られた戦略とベーシックストラテジーを比較するためシミュレーションを行った。シミュレーションでは扱いやすさを考慮するため、プレイヤーが戦略を覚え間違える度合いをエラー率として新たに定義し、戦略間の比較を行った。シミュレーションの結果から遺伝的アルゴリズムから得られた戦略がベーシックストラテジーよりも扱いやすさと利得の両方の点から優れていることが分かった。
+
 % 和文キーワード
 \begin{jkeyword}
 カジノ,\ ブラックジャック,\ ベーシックストラテジー,\ 複雑性
 \end{jkeyword}
-\bunseki{※轟木文弥}
+\bunseki{※伊藤晋之介}
 \end{jabstract}
 
 %英語の概要
-\begin{eabstract} 
-\ \ In this project, we deal with Blackjack, one of the most popular games in the casino. There are
-also basic strategies and counting as representative behavior strategies concerning Blackjack. This
-has increased the player's expectation gain and created a situation that is also true for the player. It is difficult to easily adopt and execute the strategy by the casino side measures, and the expected value has also been reduced. Then, we tried to find a winning strategy from three perspectives compared to existing strategy. First, to find a strategy with high winning percentage above 50\%. Second, to avoid casino side detection. Finally, to make it easy for players to memorize and execute. In finding a strategy, we have verified to what extent the strategy called the basic strategy which 
-is most familiar as an existing strategy is confirmed up to now and to what extent it is advantageous to 
-the player compared with other methods which can simply be considered. We made a blackjack simulator and 
-simulated it. Based on the winning percentage, we compared the merits of strategies. At this time, considering 
-the complexity of the strategy, the result that the basic strategy has room for improvement was obtained.
+\begin{eabstract}
+\ \  In this project, we deal with Blackjack, one of the most popular games in the casino. There are Basic Strategy and Counting as representative behavior strategy concerning Blackjack. Players were able to increase the expected gains of Blackjack by using these strategies.  However, as the casino side took countermeasures, Counting could not be used in Blackjack, and making it difficult for players to get gains. Therefore, we have set the goal of the project to discover superior strategies from the following two points in comparison with existing strategies. The first point is that it is easy for players to play and usable strategy, and the second is that the final gain can be larger than other strategies.
+
+\ \ In the previous term, we examined how accurate the basic strategy, and how much it is advantageous to players compared with other strategies. In the verification, we created a simulator of Blackjack and conducted a simulation to investigate the winning percentage of each strategy. In addition, to determine the easy to handle of the strategy, we newly defined the complexity of the strategy. And we evaluated the strategy from the evaluation index which combined the winning percentage and the complexity of the strategy. From the results of the verification, it was found that there is room for improvement in the basic strategy when considering the complexity.
+
+\ \ In the latter term, we verified the complexity defined in the previous term, searched for new strategies using Genetic algorithm, and improved the simulator. In the verification of complexity, we conducted an experiment to actually remember the strategy. From analyzed the results of the experiment, so we confirmed that the complexity is the correct index. In the Genetic algorithm, we were able to explore strategies using performance index including complexity and obtain excellent strategies. By introducing a mechanism of betting on the simulator, it became possible to calculate not only the winning percentage but also the gain. Then conducted a simulation to compare the strategy obtained from Genetic algorithm with the basic strategy. In this simulation, in order to handle ease of handling, the degree to which the player misunderstands the strategy is newly defined as an error rate, and comparison between the strategies was made. Simulation results show that Genetic algorithm's strategy is superior to basic strategy in terms of both ease of handling and final gain.
 % 英文キーワード
 
 \begin{ekeyword}
 casino, blackjack, basic strategies, complexity
 \end{ekeyword}
-\bunseki{※轟木文弥}
+\bunseki{※伊藤晋之介}
 \end{eabstract}
 
 \tableofcontents
@@ -113,24 +126,35 @@ casino, blackjack, basic strategies, complexity
 \input{background/Introduction}
 \input{background/rule.tex}
 \input{background/basicstrategy.tex}
+\input{hilo_ko.tex}
 \input{background/bettingsystem}
 
 %既存戦略の検証に関する項目
 \chapter{プロジェクトの目標}
+%前期目標
+%後期目標
 \input{purpose/purpose.tex}
+\chapter{複雑性について}
+\input{complexity/complexity_def.tex}
+\input{complexity/experiment.tex}
+\chapter{シミュレータの作成について}
+\input{simulator/about_simulator.tex}
+\input{simulator/random.tex}
 \chapter{ベーシックストラテジーの検証}
-\input{./verification.tex}
-\input{verification/experiment.tex}
-\chapter{遺伝的アルゴリズム}
-\input{geneticalgorithm.tex}
-\input{GAimprove.tex}
-\chapter{シミュレーション}
-\input{simulation/simulator.tex}
-\input{simulation/random.tex}
-\chapter{検証結果}
+\input{verification/verification.tex}
+\input{verification/simulator.tex}
 \input{verification/statistics.tex}
 \input{verification/complexity.tex}
-\input{verification/betsimulation.tex}
+\chapter{遺伝的アルゴリズム}
+\input{geneticalgorithm/geneticalgorithm.tex}
+\input{geneticalgorithm/geneticalgorithm_score.tex}
+\input{geneticalgorithm/GAimprove.tex}
+\chapter{賭け金ありのシミュレーション}
+\input{verification_result/intro.tex}
+\input{verification_result/strategiestable.tex}
+\input{verification_result/betsimulation.tex}
+\chapter{複雑性を考慮した戦略の評価のシミュレーション}
+\input{error_rate.tex}
 \chapter{前期活動}
 \input{./previousactivity.tex}
 %\chapter{後期目標}
