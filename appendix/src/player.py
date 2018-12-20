@@ -1,6 +1,3 @@
-\begin{itemize}
-\item プレイヤーを表現するクラス
-\begin{lstlisting}
 class Player(GamePlayer):
     # プレイヤーの初期化
     def __init__(self, name, money=0, betMoney=0, tag="player"):
@@ -87,7 +84,3 @@ class Player(GamePlayer):
     def addtotaldraw(self):
         self.totaldraw += 1
         self.winlose = "draw"
-
-\end{lstlisting}
-\end{itemize}
-\newpage
