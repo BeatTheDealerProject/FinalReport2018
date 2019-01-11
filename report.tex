@@ -35,9 +35,6 @@
  	captionpos = t
 }
 
-\setcounter{chapter}{1}
-\setcounter{section}{0}
-
 \thisYear{2018}
 \jProjectName{ディーラーをやっつけろ! 複雑系の数理とシミュレーション}
 \eProjectName{Beat the dealer! Mathematics of Complex Systems and Simulation.}
@@ -58,27 +55,13 @@
 \GroupMember  {9}{1016231}{米村祥裕}{Yoshihiro~Yonemura}
 \jadvisor{川越敏司,川口聡,斎藤朝輝}
 \eadvisor{Toshiji~Kawagoe,Satoshi~Kawaguchi,Asaki~Saitou}
-\jdate{2019年1月19日}
-\edate{January~19, 2019}
+\jdate{2019年1月16日}
+\edate{January~16, 2019}
 
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}%
 
 % 画像ファイル (EPS, EPDF, PNG) を読み込むために
 \usepackage[dvipdfmx]{graphicx,color}
-%\pagestyle{empty}
-\advance\textheight\headheight \headheight=0pt
-\advance\textheight\headsep    \headsep=0pt
-\advance\textheight\footskip   \footskip=0pt
-\textheight=738truept
-\advance\textwidth\marginparsep \marginparsep=0pt
-\advance\textwidth\marginparwidth \marginparwidth=0pt
-\advance\textwidth\oddsidemargin \oddsidemargin=0pt
-\evensidemargin=\oddsidemargin
-\textwidth=50zw
-\advance\textwidth2zw
-\columnsep=2zw
-\topmargin=-5.4mm
-\oddsidemargin=-7.4mm
 
 \begin{document}
 \maketitle
@@ -121,6 +104,7 @@ casino, blackjack, basic strategies, complexity
 \newpage
 
 \pagenumbering{arabic}
+\mainmatter
 
 \chapter{研究背景}
 \input{background/Introduction}
