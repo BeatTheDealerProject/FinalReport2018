@@ -20,6 +20,7 @@
 \begin{table}[H]
  \caption{デック数と各戦略での勝利、負け、引き分けの比率\label{ratebstable}}
  \begin{center}
+ \scalebox{0.9}{
   \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline & \multicolumn{3}{c|}{デック数無限} & \multicolumn{3}{c|}{デック数1} \\
     \cline{2-7} & 勝ち(\%) & 負け(\%) & 引き分け(\%) & 勝ち(\%) & 負け(\%) & 引き分け(\%) \\
@@ -32,6 +33,7 @@
     \hline 18以上になるまでヒットする戦略 & 39.3 & 52.6 & 8.1 & 42.1 & 49.9 & 8.1 \\
     \hline
   \end{tabular}
+  }
  \end{center}
 \end{table}
 今回はシミュレータで各戦略を10万回実行した。その結果を勝ち、負け、引き分けの3種類に分けて、表\ref{bstable}と表\ref{ratebstable}にまとめた。表\ref{bstable}は度数で表し、表\ref{ratebstable}では比率で表したものになっている。縦軸はデックの数とそれに対応する勝敗とし、横軸は戦略ごとに分けている。例えば、表\ref{ratebstable}ベーシックストラテジーでデック数1の場合を見ると勝ちが43.1\%で負けが48.7\%で引き分けが8.2\%となっている。\\
